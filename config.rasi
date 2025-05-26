@@ -1,0 +1,96 @@
+//                                                       888   e88 88e    dP"8 
+//   ,"Y88b 888 8e   ,"Y88b  e88'888  ,"Y88b 888,8,  e88 888  d888 888b  C8b Y 
+//  "8" 888 888 88b "8" 888 d888  '8 "8" 888 888 "  d888 888 C8888 8888D  Y8b  
+//  ,ee 888 888 888 ,ee 888 Y888   , ,ee 888 888    Y888 888  Y888 888P  b Y8D 
+//  "88 888 888 888 "88 888  "88,e8' "88 888 888     "88 888   "88 88"   8edP  
+  
+configuration {
+  display-drun: "Applications:";
+  display-window: "Windows:";
+  drun-display-format: "{icon} {name}";
+  font: "JetBrainsMono Nerd Font Medium 16";
+  show-icons: true;
+  icon-theme: "Papirus";
+  modi: "window,run,drun";
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #2e2e2e45;
+  bg-alt: #2e2e2e00;
+  bg-selected: #44444460;
+
+  fg: #f0f0f0;
+  fg-alt: #cdd6f4;
+
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  transparency: "real";
+  width: 45%;
+  height: 40%;
+  background-color: @bg;
+  border-radius: 10px;
+  border-color: #eff3f7;
+  border: 2px;
+}
+
+element {
+  padding: 8 12;
+  background-color: transparent;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @bg-selected;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 35;
+  padding: 0 10 0 0;
+  background-color: transparent;
+}
+
+entry {
+  padding: 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-color: @bg;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 10;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg;
+}
+
+prompt {
+  enabled: true;
+  padding: 12 0 0 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+/* vim: ft=sass

@@ -1,0 +1,9 @@
+{
+    "window.menuBarVisibility": "classic",
+    "workbench.productIconTheme": "fluent-icons",
+    "editor.guides.indentation": false,
+    "workbench.colorTheme": "Night Owl Light",
+    "keyboard.layout": "com.apple.keylayout.Spanish-ISO",
+    "security.workspace.trust.untrustedFiles": "open",
+    "window.autoDetectColorScheme": false
+}
