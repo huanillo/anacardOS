@@ -1,6 +1,6 @@
 # AnacardOS
 
-**AnacardOS** is a custom Hyprland desktop setup designed for Arch-based systems. It combines minimalism with practicality, offering a dynamic user interface that adapts to day and night cycles, with lightweight components, clean visuals, and efficient tools. The entire configuration is managed through a single setup script.
+**AnacardOS** is a custom Hyprland desktop setup designed for Arch-based systems. It combines minimalism with practicality, offering a dynamic user interface that adapts to day and night cycles. The entire configuration is managed through a single setup script.
 
 ---
 
@@ -8,6 +8,7 @@
 
 - Arch Linux (or compatible)
 - Hyprland **already installed and configured**
+- Yay
 
 ---
 
@@ -15,10 +16,10 @@
 
 The script installs and configures the following tools and dependencies:
 
-- `kitty`: terminal emulator
-- `waybar`: status bar
+- `kitty`: terminal
+- `waybar`: status bar config and style.css
 - `rofi`: application launcher with transparency
-- `cava`: audio visualizer
+- `cava`: terminal audio visualizer
 - `swww`: wallpaper manager with transition effects
 - `meowfetch` (and `neofetch`): system info display. AnacardOS defaults to meowfetch.
 - `spicetify`: Spotify UI customization
