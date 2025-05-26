@@ -1,0 +1,39 @@
+# .gitignore para AnacardOS
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Backups y temporales
+*.swp
+*.bak
+*.tmp
+*~
+
+# Historial y sesiones
+.bash_history
+.zsh_history
+
+# Archivos de VS Code que no son config
+.vscode/
+
+# Archivos de caché
+.cache/
+npm-cache/
+__pycache__/
+
+# Archivos de log o output
+*.log
+*.out
+
+# Builds
+build/
+dist/
+
+# Archivos específicos de tu máquina
+.local/
+.Music/
+.Videos/
+Downloads/
+Documents/
+Pictures/Screenshots/

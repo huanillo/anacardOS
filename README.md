@@ -1,29 +1,38 @@
+# AnacardOS
 
-## 📦 Requisitos previos
+**AnacardOS** is a custom Hyprland desktop setup designed for Arch-based systems. It combines minimalism with practicality, offering a dynamic user interface that adapts to day and night cycles, with lightweight components, clean visuals, and efficient tools. The entire configuration is managed through a single setup script.
 
-- Arch Linux (o derivada)
-- Hyprland **ya instalado**
+---
 
-## 🔧 ¿Qué instala este setup?
+## Prerequisites
 
-El script configurará todo lo siguiente:
+- Arch Linux (or compatible)
+- Hyprland **already installed and configured**
 
-- `kitty`: terminal
-- `waybar`: barra de estado
-- `rofi`: launcher con transparencia
-- `cava`: visualizador de audio
-- `swww`: cambio de wallpapers con transición
-- `meowfetch` o `neofetch`: banner de sistema
-- `spicetify`: para tunear Spotify
-- `code` (VS Code): ya configurado
-- `sunwait`: detección solar para cambiar tema
-- `gsimplecal`: calendario emergente
-- `qt5ct`, `xsettingsd`: para temas QT
-- `xfce4-settings`: para que Thunar respete GTK
-- `xdotool`, `libnotify`: para scripts auxiliares
-- `themix`: editor de temas GTK (opcional)
+---
 
-## 🛠 Instalación
+## What does the setup include?
+
+The script installs and configures the following tools and dependencies:
+
+- `kitty`: terminal emulator
+- `waybar`: status bar
+- `rofi`: application launcher with transparency
+- `cava`: audio visualizer
+- `swww`: wallpaper manager with transition effects
+- `meowfetch` or `neofetch`: system info display
+- `spicetify`: Spotify UI customization
+- `code` (Visual Studio Code): preconfigured with light/dark themes
+- `sunwait`: sunrise/sunset detection
+- `gsimplecal`: popup calendar
+- `qt5ct`, `xsettingsd`: QT theming support
+- `xfce4-settings`: ensures GTK theme compliance in Thunar
+- `xdotool`, `libnotify`: auxiliary scripting tools
+- `themix`: optional GTK theme editor
+
+---
+
+## Installation
 
 ```bash
 git clone https://github.com/eructo/anacardOS ~/.anacardOS
@@ -32,10 +41,16 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-Durante la instalación, puedes optar por instalar todos los paquetes necesarios usando `yay`.
+During installation, you will be prompted to install all required packages using `yay`. Make sure `yay` is available on your system.
 
-## 🌗 Cambio automático de tema día/noche
+---
 
-Activado con `theme-sun-switch.timer`, según salida/puesta del sol en Asturias.  
-Se puede personalizar en el archivo `scripts/theme-sun-switch.sh`.
+## Day/Night Theme Automation
 
+The setup includes a systemd timer (`theme-sun-switch.timer`) that automatically switches between light and dark themes based on the sunrise and sunset times in Asturias (by default). You can customize the behavior in the script located at:
+
+```bash
+~/.config/scripts/theme-sun-switch.sh
+```
+
+---
