@@ -20,7 +20,7 @@ The script installs and configures the following tools and dependencies:
 - `rofi`: application launcher with transparency
 - `cava`: audio visualizer
 - `swww`: wallpaper manager with transition effects
-- `meowfetch` or `neofetch`: system info display
+- `meowfetch` (and `neofetch`): system info display. AnacardOS defaults to meowfetch.
 - `spicetify`: Spotify UI customization
 - `code` (Visual Studio Code): preconfigured with light/dark themes
 - `sunwait`: sunrise/sunset detection
