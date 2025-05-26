@@ -5,5 +5,7 @@
     "workbench.colorTheme": "Dark-Dracula",
     "keyboard.layout": "com.apple.keylayout.Spanish-ISO",
     "security.workspace.trust.untrustedFiles": "open",
-    "window.autoDetectColorScheme": false
+    "window.autoDetectColorScheme": false,
+    "workbench.preferredDarkColorTheme": "Dark-Dracula",
+    "workbench.preferredLightColorTheme": "Night Owl Light"
 }
