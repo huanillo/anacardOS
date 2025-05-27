@@ -1,0 +1,5 @@
+[Unit]
+Description=Cambia tema claro/oscuro según el sol
+
+[Service]
+ExecStart=%h/.config/scripts/theme-sun-switch.sh

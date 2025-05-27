@@ -1,0 +1,10 @@
+[Unit]
+Description=Ejecuta el cambio de tema automáticamente
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=10min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

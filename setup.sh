@@ -2,7 +2,6 @@
 
 echo "AnacardOS - by Eructo"
 
-# Directorio actual (raíz del repo clonado)
 BASE_DIR="$(pwd)"
 
 mkdir -p ~/.config/hypr
@@ -14,6 +13,8 @@ mkdir -p ~/.config/Code/User
 mkdir -p ~/Pictures/Wallpapers
 
 ln -sf "$BASE_DIR/hypr/hyprland.conf" ~/.config/hypr/hyprland.conf
+ln -sf "$BASE_DIR/hypr/hypridle.conf" ~/.config/hypr/hypridle.conf
+ln -sf "$BASE_DIR/hypr/hyprlock.conf" ~/.config/hypr/hyprlock.conf
 ln -sf "$BASE_DIR/kitty/kitty.conf" ~/.config/kitty/kitty.conf
 ln -sf "$BASE_DIR/rofi/config.rasi" ~/.config/rofi/config.rasi
 ln -sf "$BASE_DIR/waybar/config" ~/.config/waybar/config
@@ -24,13 +25,31 @@ cp "$BASE_DIR/vscode/"* ~/.config/Code/User/
 
 cp "$BASE_DIR/wallpapers/"* ~/Pictures/Wallpapers/
 
+cp "$BASE_DIR/systemd/user/theme-sun-switch."* ~/.config/systemd/user/
 systemctl --user daemon-reexec
 systemctl --user enable --now theme-sun-switch.timer
 
-echo "Install needed packages with yay? (y/n)"
+if ! command -v yay &> /dev/null; then
+    echo "Yay is not installed. Do you want to install it now? (y/n)"
+    read -r install_yay
+    if [[ "$install_yay" == "y" || "$install_yay" == "s" ]]; then
+        sudo pacman -S --noconfirm --needed git base-devel
+        git clone https://aur.archlinux.org/yay.git /tmp/yay
+        cd /tmp/yay || exit
+        makepkg -si --noconfirm
+        cd "$BASE_DIR" || exit
+    else
+        echo "Yay is required to install some packages. Exiting."
+        exit 1
+    fi
+fi
+
+echo "Install all  needed packages? (y/n)"
 read -r install
-if [[ "$install" == "s" ]]; then
-  yay -S --noconfirm kitty rofi waybar cava spicetify gsimplecal xdotool swww meowfetch neofetch qt5ct xsettingsd sunwait xfce4-settings libnotify code theMix
+if [[ "$install" == "s" || "$install" == "y" ]]; then
+  sudo pacman -S --noconfirm --needed kitty rofi waybar cava gsimplecal xdotool swww neofetch qt5ct xsettingsd xfce4-settings libnotify htop
+
+  yay -S --noconfirm spicetify meowfetch sunwait visual-studio-code-bin themix
 fi
 
 echo "AnacardOS installed. Reboot Hyprland."

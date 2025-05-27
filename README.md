@@ -13,9 +13,9 @@
 ---
 
 ## What does the setup include?
+The script copies all configuration files, sets up the day/night theme switching timer and installs the following packages:
 
-The script installs and configures the following tools and dependencies:
-
+- `yay`: only if it is not installed (Asks user before installing it)
 - `kitty`: terminal
 - `waybar`: status bar config and style.css
 - `rofi`: application launcher with transparency
@@ -30,6 +30,7 @@ The script installs and configures the following tools and dependencies:
 - `xfce4-settings`: ensures GTK theme compliance in Thunar
 - `xdotool`, `libnotify`: auxiliary scripting tools
 - `themix`: optional GTK theme editor
+- `htop`: proccess viewer
 
 ---
 

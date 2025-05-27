@@ -208,7 +208,7 @@
         "format-ethernet": " ", // Icon: ethernet
         "format-disconnected": "⚠ Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}\n{essid} ({signalStrength}%)",
-        "on-click": "/home/juanillo/scripts/rofi/wifi-menu.sh"
+        "on-click": "~/.config/scripts/wifi-menu.sh"
     },
 
     "bluetooth": {
@@ -239,7 +239,7 @@
     // -------------------------------------------------------------------------
     "custom/power": {
         "format": "", // arch icon
-        "on-click": "/home/$USER/scripts/rofi/powermenu-hypr.sh",
+        "on-click": "/home/$USER/.config/scripts/powermenu-hypr.sh",
         "tooltip": false
     },
 
