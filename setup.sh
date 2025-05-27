@@ -54,4 +54,14 @@ if [[ "$install" == "s" || "$install" == "y" ]]; then
   yay -S --noconfirm spicetify meowfetch sunwait visual-studio-code-bin themix
 fi
 
+echo "Configure location for day/night theme switching. Leave empty for default (Asturias, Spain)"
+read -p "Enter your latitude (e.g., 43.36N): " LAT
+read -p "Enter your longitude (e.g., 5.84W): " LON
+
+LAT=${LAT:-43.36N}
+LON=${LON:-5.84W}
+
+sed -i "s/^LAT=.*/LAT=\\\"$LAT\\\"/" ~/.config/scripts/theme-sun-switch.sh
+sed -i "s/^LON=.*/LON=\\\"$LON\\\"/" ~/.config/scripts/theme-sun-switch.sh
+
 echo "AnacardOS installed. Reboot Hyprland."

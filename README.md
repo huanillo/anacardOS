@@ -42,16 +42,12 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-During installation, you will be prompted to install yay if not installed yet.
-
----
-
-## Day/Night Theme Automation
-
-The setup includes a systemd timer (`theme-sun-switch.timer`) that automatically switches between light and dark themes based on the sunrise and sunset times in Asturias (by default). You can customize the behavior in the script located at:
+During installation, you will be prompted to enter a latitude and longitude to configure the day/night automation. Leave both empty to use the default value (Asturias, España).
+This coordinates and other behaviours of the automation can be customized in the script located at:
 
 ```bash
 ~/.config/scripts/theme-sun-switch.sh
 ```
 
 ---
+
