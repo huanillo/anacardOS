@@ -1,13 +1,13 @@
 # AnacardOS
 
-**AnacardOS** is a custom Hyprland desktop setup designed for Arch-based systems. It combines minimalism with practicality, offering a dynamic user interface that adapts to day and night cycles. The entire configuration is managed through a single setup script.
+My custom rice. It adapts to day/night cycles based on coordinates. The entire configuration is managed through a single setup script.
 
 ---
 
 ## Prerequisites
 
 - Arch Linux (or compatible)
-- Hyprland **already installed and configured**
+- Hyprland
 
 ---
 
@@ -48,6 +48,4 @@ This coordinates and other behaviours of the automation can be customized in the
 ```bash
 ~/.config/scripts/theme-sun-switch.sh
 ```
-
----
 
