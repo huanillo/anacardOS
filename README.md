@@ -20,7 +20,7 @@ The script copies all configuration files, sets up the day/night theme switching
 - `rofi`: application launcher with transparency
 - `cava`: terminal audio visualizer
 - `swww`: wallpaper manager with transition effects
-- `meowfetch` (and `neofetch`): system info display. AnacardOS defaults to meowfetch.
+- `meowfetch`: system info display. Customized fork to identify AnacardOS as DE.
 - `spicetify`: Spotify UI customization
 - `code` (Visual Studio Code): preconfigured with light/dark themes
 - `sunwait`: sunrise/sunset detection

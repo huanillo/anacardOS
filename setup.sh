@@ -49,10 +49,16 @@ fi
 echo "Install all  needed packages? (y/n)"
 read -r install
 if [[ "$install" == "s" || "$install" == "y" ]]; then
-  sudo pacman -S --noconfirm --needed kitty rofi waybar cava gsimplecal xdotool swww neofetch qt5ct xsettingsd xfce4-settings libnotify htop
+  sudo pacman -S --noconfirm --needed kitty rofi waybar cava gsimplecal xdotool swww qt5ct xsettingsd xfce4-settings libnotify htop
 
-  yay -S --noconfirm spicetify meowfetch sunwait visual-studio-code-bin themix
+  yay -S --noconfirm spicetify sunwait visual-studio-code-bin themix
 fi
+
+git clone https://github.com/huanillo/meowfetch.git /tmp/meowfetch
+cd /tmp/meowfetch || exit
+make
+sudo make install
+cd "$BASE_DIR" || exit
 
 echo "Configure location for day/night theme switching. Leave empty for default (Asturias, Spain)"
 read -p "Enter your latitude (e.g., 43.36N): " LAT
