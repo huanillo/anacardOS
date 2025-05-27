@@ -8,7 +8,6 @@
 
 - Arch Linux (or compatible)
 - Hyprland **already installed and configured**
-- Yay
 
 ---
 
@@ -43,7 +42,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-During installation, you will be prompted to install all required packages using `yay`. Make sure `yay` is available on your system.
+During installation, you will be prompted to install yay if not installed yet.
 
 ---
 

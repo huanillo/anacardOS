@@ -10,15 +10,17 @@ mkdir -p ~/.config/rofi
 mkdir -p ~/.config/kitty
 mkdir -p ~/.config/scripts
 mkdir -p ~/.config/Code/User
+mkdir -p ~/.themes
 mkdir -p ~/Pictures/Wallpapers
 
-ln -sf "$BASE_DIR/hypr/hyprland.conf" ~/.config/hypr/hyprland.conf
-ln -sf "$BASE_DIR/hypr/hypridle.conf" ~/.config/hypr/hypridle.conf
-ln -sf "$BASE_DIR/hypr/hyprlock.conf" ~/.config/hypr/hyprlock.conf
-ln -sf "$BASE_DIR/kitty/kitty.conf" ~/.config/kitty/kitty.conf
-ln -sf "$BASE_DIR/rofi/config.rasi" ~/.config/rofi/config.rasi
-ln -sf "$BASE_DIR/waybar/config" ~/.config/waybar/config
-ln -sf "$BASE_DIR/waybar/style.css" ~/.config/waybar/style.css
+cp "$BASE_DIR/hypr/hyprland.conf" ~/.config/hypr/hyprland.conf
+cp "$BASE_DIR/hypr/hypridle.conf" ~/.config/hypr/hypridle.conf
+cp "$BASE_DIR/hypr/hyprlock.conf" ~/.config/hypr/hyprlock.conf
+cp "$BASE_DIR/kitty/kitty.conf" ~/.config/kitty/kitty.conf
+cp "$BASE_DIR/rofi/config.rasi" ~/.config/rofi/config.rasi
+cp "$BASE_DIR/waybar/config" ~/.config/waybar/config
+cp "$BASE_DIR/waybar/style.css" ~/.config/waybar/style.css
+cp "$BASE_DIR/.themes/"* ~/.themes/
 cp "$BASE_DIR/scripts/"* ~/.config/scripts/
 chmod +x ~/.config/scripts/*.sh
 cp "$BASE_DIR/vscode/"* ~/.config/Code/User/
