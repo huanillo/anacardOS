@@ -58,6 +58,7 @@ if [ "$CURRENT_STATE" == "day" ]; then
     xfconf-query -c xsettings -p /Net/ThemeName -s oomox-WorldEnd
     cp ~/.config/Code/User/settings-light.json ~/.config/Code/User/settings.json
 
+    notify-send "☼ Day Mode"
     echo "day" > "$STATE_FILE"
 
 # Aplicar modo oscuro
@@ -75,5 +76,6 @@ else
     xfconf-query -c xsettings -p /Net/ThemeName -s Breeze
     cp ~/.config/Code/User/settings-dark.json ~/.config/Code/User/settings.json
 
+    notify-send "☼ Night Mode"
     echo "night" > "$STATE_FILE"
 fi
