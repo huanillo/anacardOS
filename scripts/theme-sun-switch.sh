@@ -11,9 +11,10 @@
 LAT="43.36N"
 LON="5.84W"
 
-LIGHT_BG="$HOME/Pictures/Wallpapers/806821.png"
-DARK_BG="$HOME/Pictures/Wallpapers/fondo_noche.jpg"
+LIGHT_BG=$(find "$HOME/Pictures/Wallpapers/Day" -type f \( -iname '*.jpg' -o -iname '*.png' \) | head -n 1)
+DARK_BG=$(find "$HOME/Pictures/Wallpapers/Night" -type f \( -iname '*.jpg' -o -iname '*.png' \) | head -n 1)
 
+LOCK_CONFIG="$HOME/.config/hypr/hyprlock.conf"
 STATE_FILE="$HOME/.cache/theme_state"
 mkdir -p ~/.cache
 
@@ -43,33 +44,36 @@ fi
 
 # Aplicar modo claro
 if [ "$CURRENT_STATE" == "day" ]; then
-    echo "☼  Activando modo claro"
+    echo "☼  Activating day mode"
 
     gsettings set org.gnome.desktop.interface color-scheme prefer-light
     gsettings set org.gnome.desktop.interface gtk-theme Breeze
     export GTK_THEME=Breeze
 
-    swww img "$LIGHT_BG" --transition-type grow
-    xfconf-query -c xsettings -p /Net/ThemeName -s oomox-WorldEnd
+    swww img "$LIGHT_BG" --transition-type fade
 
+    ESCAPED_LIGHT=$(printf '%s\n' "$LIGHT_BG" | sed -e 's/[\/&]/\\&/g')
+    sed -i "s|^path = .*|path = $ESCAPED_LIGHT|" "$LOCK_CONFIG"
+
+    xfconf-query -c xsettings -p /Net/ThemeName -s oomox-WorldEnd
     cp ~/.config/Code/User/settings-light.json ~/.config/Code/User/settings.json
 
-    notify-send "☼ Modo claro activado" "Fondo y tema actualizados"
     echo "day" > "$STATE_FILE"
 
 # Aplicar modo oscuro
 else
-    echo "○  Activando modo oscuro"
+    echo "○  Activating night mode"
 
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark
     gsettings set org.gnome.desktop.interface gtk-theme Breeze-Dark
     export GTK_THEME=Breeze-Dark
 
-    swww img "$DARK_BG" --transition-type grow
-    xfconf-query -c xsettings -p /Net/ThemeName -s Breeze
+    swww img "$DARK_BG" --transition-type fade
+    ESCAPED_DARK=$(printf '%s\n' "$DARK_BG" | sed -e 's/[\/&]/\\&/g')
+    sed -i "s|^path = .*|path = $ESCAPED_DARK|" "$LOCK_CONFIG"
 
+    xfconf-query -c xsettings -p /Net/ThemeName -s Breeze
     cp ~/.config/Code/User/settings-dark.json ~/.config/Code/User/settings.json
 
-    notify-send "○ Modo oscuro activado" "Fondo y tema actualizados"
     echo "night" > "$STATE_FILE"
 fi
