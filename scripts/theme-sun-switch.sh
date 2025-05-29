@@ -6,7 +6,6 @@
 #  ,ee 888 888 888 ,ee 888 Y888   , ,ee 888 888    Y888 888  Y888 888P  b Y8D 
 #  "88 888 888 888 "88 888  "88,e8' "88 888 888     "88 888   "88 88"   8edP  
 
-# Modo: automático (basado en sunwait) o forzado ("day"/"night")
 
 LAT="43.36N"
 LON="5.84W"
@@ -42,7 +41,18 @@ if [ "$1" != "day" ] && [ "$1" != "night" ]; then
     [ "$CURRENT_STATE" == "$PREVIOUS_STATE" ] && exit 0
 fi
 
-# Aplicar modo claro
+reload_dunst() {
+    killall dunst 2>/dev/null
+    dunst & disown
+    for i in {1..10}; do
+        dbus-send --session --dest=org.freedesktop.Notifications \
+        --type=method_call /org/freedesktop/Notifications \
+        org.freedesktop.Notifications.GetServerInformation >/dev/null 2>&1 && break
+        sleep 0.3
+    done
+}
+
+### DAY MODE ###
 if [ "$CURRENT_STATE" == "day" ]; then
     echo "☼  Activating day mode"
 
@@ -55,13 +65,16 @@ if [ "$CURRENT_STATE" == "day" ]; then
     ESCAPED_LIGHT=$(printf '%s\n' "$LIGHT_BG" | sed -e 's/[\/&]/\\&/g')
     sed -i "s|^path = .*|path = $ESCAPED_LIGHT|" "$LOCK_CONFIG"
 
+    iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-day | dos2unix > ~/.config/dunst/dunstrc
+    reload_dunst
+
     xfconf-query -c xsettings -p /Net/ThemeName -s oomox-WorldEnd
     cp ~/.config/Code/User/settings-light.json ~/.config/Code/User/settings.json
 
-    notify-send "☼ Day Mode"
+    dunstify -a "Theme switch" "☼ Day Mode"
     echo "day" > "$STATE_FILE"
 
-# Aplicar modo oscuro
+### NIGHT MODE ###
 else
     echo "○  Activating night mode"
 
@@ -70,12 +83,16 @@ else
     export GTK_THEME=Breeze-Dark
 
     swww img "$DARK_BG" --transition-type fade
+
     ESCAPED_DARK=$(printf '%s\n' "$DARK_BG" | sed -e 's/[\/&]/\\&/g')
     sed -i "s|^path = .*|path = $ESCAPED_DARK|" "$LOCK_CONFIG"
+
+    iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-night | dos2unix > ~/.config/dunst/dunstrc
+    reload_dunst
 
     xfconf-query -c xsettings -p /Net/ThemeName -s Breeze
     cp ~/.config/Code/User/settings-dark.json ~/.config/Code/User/settings.json
 
-    notify-send "☼ Night Mode"
+    dunstify -a "Theme switch" "○ Night Mode"
     echo "night" > "$STATE_FILE"
 fi
