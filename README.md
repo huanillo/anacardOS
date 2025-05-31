@@ -1,11 +1,8 @@
-#anacardOS
+# anacardOS
                   
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Made for Arch](https://img.shields.io/badge/made%20for-ArchLinux-blue)
 ![Hyprland](https://img.shields.io/badge/WM-Hyprland-ff69b4)
-             ▌▄▖▄▖
-▀▌▛▌▀▌▛▘▀▌▛▘▛▌▌▌▚ 
-█▌▌▌█▌▙▖█▌▌ ▙▌▙▌▄▌
 
 My custom rice. It adapts to day/night cycles based on coordinates. The entire configuration is managed through a single setup script.
 
