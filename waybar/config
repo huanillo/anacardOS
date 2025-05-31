@@ -26,7 +26,10 @@
     "modules-left": [
         "group/powerControl",
         "hyprland/workspaces",
-        "hyprland/mode"
+	"custom/spotify-gap",
+  	"custom/spotify-prev",
+  	"custom/spotify-toggle",
+  	"custom/spotify-next"
     ],
     "modules-center": [
         "hyprland/window"
@@ -63,14 +66,40 @@
       "exec": "~/.config/scripts/updates.sh",
       "interval": 600,
       "tooltip": true,
-      "return-type": "json"
+      "return-type": "json",
+      "on-click": "kitty -e bash -c 'sudo pacman -Syu; echo Presiona ENTER para cerrar; read'"
     },
     "custom/battery-warn": {
       "exec": "~/.config/scripts/battery_warn.sh",
       "interval": 60,
       "tooltip": false
     },
-
+    "custom/spotify-gap": {
+        "exec": "echo ' '",
+        "interval": 3600,
+        "tooltip": false
+    },
+    "custom/spotify-prev": {
+      "exec": "~/.config/scripts/spotify-prev.sh",
+      "return-type": "json",
+      "interval": 1,
+      "on-click": "playerctl previous",
+      "tooltip": true
+    },
+    "custom/spotify-toggle": {
+      "exec": "~/.config/scripts/spotify-toggle.sh",
+      "return-type": "json",
+      "interval": 1,
+      "on-click": "playerctl play-pause",
+      "tooltip": true
+    },
+    "custom/spotify-next": {
+      "exec": "~/.config/scripts/spotify-next.sh",
+      "return-type": "json",
+      "interval": 1,
+      "on-click": "playerctl next",
+      "tooltip": true
+    },
 
     "custom/window-x": {
         "format": "󱓇", // <- kill symbol 󱎘 <- X symbol 
