@@ -55,8 +55,10 @@ if [ "$CURRENT_STATE" == "day" ]; then
     export GTK_THEME="catppuccin-latte-flamingo-standard+default"
 
     swww img "$LIGHT_BG" --transition-type fade
-    set_hyprlock_bg "$LIGHT_BG"
-    killall hyprlock 2>/dev/null
+    if ! pgrep -x hyprlock >/dev/null; then
+        set_hyprlock_bg "$LIGHT_BG"
+    fi
+
 
     cp ~/.config/Code/User/settings-light.json ~/.config/Code/User/settings.json
     iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-day | dos2unix > ~/.config/dunst/dunstrc
@@ -71,8 +73,10 @@ else
     export GTK_THEME="catppuccin-mocha-red-standard+default"
 
     swww img "$DARK_BG" --transition-type fade
-    set_hyprlock_bg "$DARK_BG"
-    killall hyprlock 2>/dev/null
+    if ! pgrep -x hyprlock >/dev/null; then
+        set_hyprlock_bg "$LIGHT_BG"
+    fi
+
 
     cp ~/.config/Code/User/settings-dark.json ~/.config/Code/User/settings.json
     iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-night | dos2unix > ~/.config/dunst/dunstrc
