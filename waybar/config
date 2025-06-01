@@ -21,7 +21,7 @@
     "margin-top" : 4,
 
 
-    "height": 30,
+    "height": 40,
 
     "modules-left": [
         "group/powerControl",
@@ -67,7 +67,7 @@
       "interval": 600,
       "tooltip": true,
       "return-type": "json",
-      "on-click": "kitty -e bash -c 'sudo pacman -Syu; echo Presiona ENTER para cerrar; read'"
+      "on-click": "kitty -e bash -c 'sudo pacman -Syu && yay -Sua; echo Presiona ENTER para cerrar; read'"
     },
     "custom/battery-warn": {
       "exec": "~/.config/scripts/battery_warn.sh",
@@ -131,17 +131,19 @@
         "tooltip-format": "<big><tt>{calendar}</tt></big>",
         "on-click": "gsimplecal"
     },
-    "battery": {
-     "interval": 30,
-     "states": {
-       "warning": 30,
-       "critical": 15
-     },
-     "format": "{icon} {capacity}%",
-     "format-plugged": " {capacity}%",
-     "format-icons": ["", "", "", "", ""],
-     "margin-left": 20
-   },
+"battery": {
+  "interval": 30,
+  "states": {
+    "critical": 20
+  },
+  "format": "{icon}",
+  "tooltip": true,
+  "tooltip-format": "Batería: {capacity}%\nTiempo restante: {time}",
+  "format-icons": {
+    "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝"], 
+    "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁿"]
+  }
+},
 
    "pulseaudio": {
      "scroll-step": 5,

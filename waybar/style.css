@@ -204,7 +204,6 @@ window#waybar {
     padding-right: 13px;
 }
 
-
 #custom-power_logout {
     margin-right: 5px;
     padding-left: 11px;
@@ -228,7 +227,7 @@ tooltip {
     opacity: 1.0;
     background-color: rgba(30, 30, 30, 0.5);
     margin: 5px;
-
+    padding: 6px 12px;
     border: 3px solid #eff3f7;
 }
 #pulseaudio {
@@ -239,6 +238,10 @@ tooltip {
 #battery {
     margin-right: 5px;
 }
+#battery.critical {
+  color: #ff4c4c;
+}
+
 #custom-spotify-prev,
 #custom-spotify-toggle,
 #custom-spotify-next {
