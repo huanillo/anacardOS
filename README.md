@@ -77,4 +77,10 @@ This coordinates and other behaviours of the automation can be customized in the
 
 You can change your wallpapers anytime saving it in ~/Pictures/Wallpapers/Day or ../Night respectively, only .png format if you want it to work with hyprlock also.
 
-VScode and Thunar preferred themes can be modified in the theme switching script (theme-sun-switch.sh).
+Thunar preferred theme can be modified in the theme switching script (theme-sun-switch.sh).
+
+VsCode preferred Day/Night themes can be modified in
+```bash
+~/.config/Code/User/settings-dark.json
+~/.config/Code/User/settings-light.json
+```
