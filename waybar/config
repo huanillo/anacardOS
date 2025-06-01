@@ -35,9 +35,9 @@
         "hyprland/window"
     ],
     "modules-right": [
+	"tray",
         "group/resources",
         "group/wireless",
-        "tray",
 	"pulseaudio",
 	"battery",
         "clock",
@@ -126,7 +126,7 @@
     // -------------------------------------------------------------------------
     "clock": {
         "interval": 60,
-        "format": " {:%e %b %Y %H:%M}", // Icon: calendar-alt
+        "format": "{:%e %b %Y %H:%M}",
         "tooltip": false,
         "tooltip-format": "<big><tt>{calendar}</tt></big>",
         "on-click": "gsimplecal"
