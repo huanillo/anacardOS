@@ -50,8 +50,9 @@ set_hyprlock_bg() {
 if [ "$CURRENT_STATE" == "day" ]; then
     echo "☼ Activating Day Mode"
     gsettings set org.gnome.desktop.interface color-scheme prefer-light
-    gsettings set org.gnome.desktop.interface gtk-theme Breeze
-    export GTK_THEME=Breeze
+    gsettings set org.gnome.desktop.interface gtk-theme "catppuccin-latte-flamingo-standard+default"
+    xfconf-query -c xsettings -p /Net/ThemeName -s "catppuccin-latte-flamingo-standard+default"
+    export GTK_THEME="catppuccin-latte-flamingo-standard+default"
 
     swww img "$LIGHT_BG" --transition-type fade
     set_hyprlock_bg "$LIGHT_BG"
@@ -60,14 +61,14 @@ if [ "$CURRENT_STATE" == "day" ]; then
     cp ~/.config/Code/User/settings-light.json ~/.config/Code/User/settings.json
     iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-day | dos2unix > ~/.config/dunst/dunstrc
     reload_dunst
-    xfconf-query -c xsettings -p /Net/ThemeName -s oomox-WorldEnd
     dunstify -a "Theme switch" "☼ Day Mode"
     echo "day" > "$STATE_FILE"
 else
     echo "○ Activating Night Mode"
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    gsettings set org.gnome.desktop.interface gtk-theme Breeze-Dark
-    export GTK_THEME=Breeze-Dark
+    gsettings set org.gnome.desktop.interface gtk-theme "catppuccin-mocha-red-standard+default"
+    xfconf-query -c xsettings -p /Net/ThemeName -s "catppuccin-mocha-red-standard+default"
+    export GTK_THEME="catppuccin-mocha-red-standard+default"
 
     swww img "$DARK_BG" --transition-type fade
     set_hyprlock_bg "$DARK_BG"
@@ -76,7 +77,6 @@ else
     cp ~/.config/Code/User/settings-dark.json ~/.config/Code/User/settings.json
     iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-night | dos2unix > ~/.config/dunst/dunstrc
     reload_dunst
-    xfconf-query -c xsettings -p /Net/ThemeName -s Breeze
     dunstify -a "Theme switch" "○ Night Mode"
     echo "night" > "$STATE_FILE"
 fi

@@ -2,10 +2,10 @@
     "window.menuBarVisibility": "classic",
     "workbench.productIconTheme": "fluent-icons",
     "editor.guides.indentation": false,
-    "workbench.colorTheme": "Dark-Dracula",
+    "workbench.colorTheme": "Dracula Theme",
     "keyboard.layout": "com.apple.keylayout.Spanish-ISO",
     "security.workspace.trust.untrustedFiles": "open",
     "window.autoDetectColorScheme": false,
-    "workbench.preferredDarkColorTheme": "Dark-Dracula",
-    "workbench.preferredLightColorTheme": "Night Owl Light"
+    "workbench.preferredDarkColorTheme": "Dracula Theme",
+    "workbench.preferredLightColorTheme": "Catppuccin Latte"
 }
