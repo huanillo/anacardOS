@@ -32,7 +32,7 @@
   	"custom/spotify-next"
     ],
     "modules-center": [
-        "hyprland/window"
+        "group/windowGroup"
     ],
     "modules-right": [
 	"tray",
