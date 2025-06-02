@@ -19,7 +19,6 @@ cp -r "$BASE_DIR/.themes/"* ~/.themes/
 cp -r "$BASE_DIR/.icons/"* ~/.icons/ 2>/dev/null || true
 cp "$BASE_DIR/scripts/"* ~/.config/scripts/
 chmod +x ~/.config/scripts/*.sh
-cp "$BASE_DIR/vscode/"* ~/.config/Code/User/
 cp "$BASE_DIR/wallpapers/"* ~/Pictures/Wallpapers/
 
 ### Setup theme-switch service
@@ -57,7 +56,7 @@ if [[ "$install" =~ ^[yYsS]$ ]]; then
     spicetify sunwait visual-studio-code-bin themix
 fi
 
-### Install meowfetch
+### Install custom meowfetch
 if [ ! -d /tmp/meowfetch ]; then
   git clone https://github.com/huanillo/meowfetch.git /tmp/meowfetch
   cd /tmp/meowfetch && make && sudo make install
