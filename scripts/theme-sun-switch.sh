@@ -60,7 +60,6 @@ if [ "$CURRENT_STATE" == "day" ]; then
     fi
 
 
-    cp ~/.config/Code/User/settings-light.json ~/.config/Code/User/settings.json
     iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-day | dos2unix > ~/.config/dunst/dunstrc
     reload_dunst
     dunstify -a "Theme switch" "☼ Day Mode"
@@ -77,8 +76,6 @@ else
         set_hyprlock_bg "$LIGHT_BG"
     fi
 
-
-    cp ~/.config/Code/User/settings-dark.json ~/.config/Code/User/settings.json
     iconv -f utf-8 -t utf-8 -c ~/.config/dunst/dunstrc-night | dos2unix > ~/.config/dunst/dunstrc
     reload_dunst
     dunstify -a "Theme switch" "○ Night Mode"
