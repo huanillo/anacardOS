@@ -139,15 +139,17 @@
   "format": "{icon}",
   "tooltip": true,
   "tooltip-format": "Batería: {capacity}%\nTiempo restante: {time}",
+  "format-plugged": "󰂄",
   "format-icons": {
-    "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝"], 
-    "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁿"]
-  }
+    "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝"],
+    "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁿"],
+    "full": "󰁹"
+    }
 },
 
    "pulseaudio": {
      "scroll-step": 5,
-     "format": "{icon} {volume}%",
+     "format": "{icon} {volume}",
      "format-muted": "",
      "format-icons": {
        "default": ["", "", ""]
